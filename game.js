@@ -95,9 +95,7 @@ class Game {
       await RAPIER.init();
       this.ui.setLoad(0.1);
       const lv = await fetch('levels/levels.json').then((x) => x.json());
-      // Candy Zigzag opens the game; the other races keep their original order.
-      const FIRST = 'zigzag';
-      this.levels = [...lv.levels.filter((l) => l.id === FIRST), ...lv.levels.filter((l) => l.id !== FIRST)];
+      this.levels = lv.levels;
       await Promise.all([
         ...TEX.map(async ([name, dir, repeat, srgb = true]) => {
           this.tex[name] = await loadTex(`assets/${dir}/${name}.png`, { repeat: !!repeat, srgb });
@@ -138,7 +136,11 @@ class Game {
     const portrait = matchMedia('(orientation: portrait)');
     portrait.addEventListener?.('change', () => { if (portrait.matches && isTouch) this.autoPause(); });
     addEventListener('resize', () => this.resize());
-    screen.orientation?.addEventListener?.('change', () => setTimeout(() => this.resize(), 150));
+    // Mobile browsers report the new size late after rotating or when the address bar hides: re-measure a few times.
+    const settle = () => { for (const ms of [60, 250, 600]) setTimeout(() => this.resize(), ms); };
+    screen.orientation?.addEventListener?.('change', settle);
+    addEventListener('orientationchange', settle);
+    window.visualViewport?.addEventListener('resize', settle);
     document.addEventListener('visibilitychange', () => { if (document.hidden) this.autoPause(); });
     addEventListener('pagehide', () => this.autoPause());
     addEventListener('blur', () => { if (isTouch) this.autoPause(); });
@@ -204,7 +206,8 @@ class Game {
   resize() {
     if (!this.renderer) return;
     const w = innerWidth, h = innerHeight;
-    this.renderer.setSize(w, h, false);
+    // Exact CSS pixels = drawing-buffer aspect, so nothing is stretched when mobile browser bars come and go.
+    this.renderer.setSize(w, h, true);
     this.camera.aspect = w / h;
     this.camera.fov = CameraRig.fovFor(w / h);
     this.camera.updateProjectionMatrix();
@@ -250,8 +253,7 @@ class Game {
   onAction(act) {
     const ui = this.ui;
     switch (act) {
-      case 'tourney': ui.syncTourney(); ui.show('tourney'); break;
-      case 'timetrial': case 'practice': ui.buildSelect(act); ui.show('select'); break;
+      case 'timetrial': ui.buildSelect(act); ui.show('select'); break; // Time Trial is the only open mode for now
       case 'settings': this.settingsFrom = this.paused ? 'pause' : null; ui.syncSettings(); ui.overlayShow('settings'); break;
       case 'back':
         if (ui.overlay === 'settings') ui.overlayShow(this.settingsFrom);
@@ -381,7 +383,7 @@ class Game {
     if (!this.run || !this.level) return;
     const ui = this.ui, lv = this.levels[this.run.index];
     const name = (lv.name[ui.lang] || lv.name.en) + (this.run.mirror ? ' ⇋' : '');
-    const num = this.run.mode === 'tournament' ? ui.t('raceOf', { n: this.run.index + 1 }) : ui.t(this.run.mode === 'timetrial' ? 'ttLabel' : 'practiceLabel');
+    const num = this.run.mode === 'tournament' ? ui.t('raceOf', { n: this.run.index + 1, total: this.levels.length }) : ui.t(this.run.mode === 'timetrial' ? 'ttLabel' : 'practiceLabel');
     ui.hudInfo(name, num);
   }
 
@@ -526,7 +528,7 @@ class Game {
     this.input.setEnabled(false);
     run.over = true;
     if (run.score > d.tourneyBest) { d.tourneyBest = run.score; this.store.save(); }
-    ui.showResults({ title: ui.t('timesUp'), pitzi: 'dizzy', rows: [[ui.t('racesDone', { n: run.index }), `${run.index}/8`]],
+    ui.showResults({ title: ui.t('timesUp'), pitzi: 'dizzy', rows: [[ui.t('racesDone', { n: run.index, total: this.levels.length }), `${run.index}/${this.levels.length}`]],
       score: run.score, scoreFrom: run.score, scoreLabel: ui.t('total'), retry: false, continueLabel: ui.t('menu') });
     if (!run.mirror) this.online.reportTourney(run.diff, run.score);
   }
@@ -540,7 +542,7 @@ class Game {
     this.teardownRace();
     this.ui.hud(false);
     this.state = 'results';
-    ui.showResults({ title: ui.t('tourneyDone'), pitzi: 'happy', rows: [[ui.t('racesDone', { n: 8 }), '8/8'], [ui.t('bestScore'), d.tourneyBest.toLocaleString('en-US')]],
+    ui.showResults({ title: ui.t('tourneyDone'), pitzi: 'happy', rows: [[ui.t('racesDone', { n: this.levels.length, total: this.levels.length }), `${this.levels.length}/${this.levels.length}`], [ui.t('bestScore'), d.tourneyBest.toLocaleString('en-US')]],
       score: run.score, scoreFrom: 0, scoreLabel: ui.t('total'), medal: 'acorn', note: first ? ui.t('mirrorUnlocked') : '', retry: false, continueLabel: ui.t('menu') });
     if (!run.mirror) this.online.reportTourney(run.diff, run.score);
   }

@@ -85,7 +85,7 @@ export class OnlineUI {
   }
   buildTabs() {
     const wrap = $('board-tabs'); wrap.innerHTML = '';
-    const tabs = this.g.levels.map((_, i) => ({ id: i, label: String(i + 1) })).concat([{ id: 'T', label: '🏆' }]);
+    const tabs = this.g.levels.map((_, i) => ({ id: i, label: String(i + 1) })); // tournament board returns with the mode
     for (const t of tabs) {
       const b = document.createElement('button');
       b.textContent = t.label; b.className = t.id === this.tab ? 'on' : '';

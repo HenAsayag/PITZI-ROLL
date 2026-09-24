@@ -1,1212 +1,9 @@
 {
- "version": 1,
+ "version": 2,
  "units": "meters/seconds",
  "ballRadius": 0.5,
  "conventions": "Y up; heading deg, dir=(sin h,0,-cos h); +angle turns right; drop=Δy over segment; hazard.at 0..1 along segment; hazard.x -1..1 across half-width (+ = right)",
  "levels": [
-  {
-   "id": "warmup",
-   "name": {
-    "he": "מסלול חימום",
-    "en": "Warm-Up Lane"
-   },
-   "theme": "meadow",
-   "desc": {
-    "he": "גלגלו, תרגישו את הכדור, הגיעו לדגל.",
-    "en": "Roll, feel the ball, reach the flag."
-   },
-   "raceTime": 28.0,
-   "par": 14.0,
-   "medals": {
-    "bronze": 16.5,
-    "silver": 13.5,
-    "gold": 11.5,
-    "acorn": 10.5
-   },
-   "killY": 15.0,
-   "pathLength": 80.3,
-   "segments": [
-    {
-     "type": "straight",
-     "length": 14,
-     "width": 7,
-     "drop": -1.5,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "start",
-       "at": 0.2,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": 0.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": 90,
-     "radius": 9,
-     "width": 7,
-     "drop": -1,
-     "rails": "both",
-     "start": {
-      "x": 0.0,
-      "y": 28.5,
-      "z": -14.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 12,
-     "width": 6,
-     "drop": -2,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "speedpad",
-       "at": 0.5,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 9.0,
-      "y": 27.5,
-      "z": -23.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 6,
-     "width": 6,
-     "drop": 0,
-     "rails": "both",
-     "checkpoint": true,
-     "start": {
-      "x": 21.0,
-      "y": 25.5,
-      "z": -23.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": -90,
-     "radius": 9,
-     "width": 6,
-     "drop": -1,
-     "rails": "both",
-     "start": {
-      "x": 27.0,
-      "y": 25.5,
-      "z": -23.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 10,
-     "width": 6,
-     "drop": -1.5,
-     "rails": "none",
-     "start": {
-      "x": 36.0,
-      "y": 24.5,
-      "z": -32.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "goal",
-       "at": 0.6,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 36.0,
-      "y": 23.0,
-      "z": -42.0,
-      "heading": 0.0
-     }
-    }
-   ]
-  },
-  {
-   "id": "bumpers",
-   "name": {
-    "he": "גשרי הקפיצים",
-    "en": "Bumper Bridges"
-   },
-   "theme": "meadow",
-   "desc": {
-    "he": "גשרים צרים, באמפרים ששולחים אותך עף, ויריב שרוצה להפיל אותך.",
-    "en": "Narrow bridges, bouncy bumpers and a pushy rival."
-   },
-   "raceTime": 33.0,
-   "par": 18.0,
-   "medals": {
-    "bronze": 21.0,
-    "silver": 17.0,
-    "gold": 15.0,
-    "acorn": 13.5
-   },
-   "killY": 14.5,
-   "pathLength": 101.6,
-   "segments": [
-    {
-     "type": "straight",
-     "length": 10,
-     "width": 7,
-     "drop": -1,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "start",
-       "at": 0.3,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": 0.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 12,
-     "width": 3,
-     "drop": -1,
-     "rails": "none",
-     "start": {
-      "x": 0.0,
-      "y": 29.0,
-      "z": -10.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 12,
-     "length": 12,
-     "drop": 0,
-     "rails": "none",
-     "checkpoint": true,
-     "hazards": [
-      {
-       "type": "bumper",
-       "at": 0.3,
-       "x": -0.5
-      },
-      {
-       "type": "bumper",
-       "at": 0.3,
-       "x": 0.5
-      },
-      {
-       "type": "bumper",
-       "at": 0.7,
-       "x": 0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 28.0,
-      "z": -22.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": 90,
-     "radius": 7,
-     "width": 5,
-     "drop": -1,
-     "rails": "left",
-     "start": {
-      "x": 0.0,
-      "y": 28.0,
-      "z": -34.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 14,
-     "width": 2.5,
-     "drop": -1.5,
-     "rails": "none",
-     "start": {
-      "x": 7.0,
-      "y": 27.0,
-      "z": -41.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "checkpoint": true,
-     "hazards": [
-      {
-       "type": "rival",
-       "at": 0.5,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 21.0,
-      "y": 25.5,
-      "z": -41.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": -120,
-     "radius": 6,
-     "width": 5,
-     "drop": -1,
-     "rails": "right",
-     "start": {
-      "x": 31.0,
-      "y": 25.5,
-      "z": -41.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 10,
-     "width": 5,
-     "drop": -2,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "speedpad",
-       "at": 0.3,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 36.196,
-      "y": 24.5,
-      "z": -50.0,
-      "heading": -30.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "goal",
-       "at": 0.6,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 31.196,
-      "y": 22.5,
-      "z": -58.66,
-      "heading": -30.0
-     }
-    }
-   ]
-  },
-  {
-   "id": "zigzag",
-   "name": {
-    "he": "זיגזג ממתקים",
-    "en": "Candy Zigzag"
-   },
-   "theme": "candy",
-   "desc": {
-    "he": "פניות חדות בלי מעקות, שלולית זפת דביקה וכפתור בונוס מוסתר בצד.",
-    "en": "Rail-less zigzags, sticky tar and a hidden bonus button."
-   },
-   "raceTime": 36.0,
-   "par": 20.0,
-   "medals": {
-    "bronze": 23.5,
-    "silver": 19.0,
-    "gold": 16.5,
-    "acorn": 15.0
-   },
-   "killY": 11.5,
-   "pathLength": 113.4,
-   "segments": [
-    {
-     "type": "straight",
-     "length": 8,
-     "width": 6,
-     "drop": -1,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "start",
-       "at": 0.3,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": 0.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": 60,
-     "radius": 6,
-     "width": 3.5,
-     "drop": -1,
-     "rails": "none",
-     "start": {
-      "x": 0.0,
-      "y": 29.0,
-      "z": -8.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": -120,
-     "radius": 6,
-     "width": 3.5,
-     "drop": -1.5,
-     "rails": "none",
-     "start": {
-      "x": 3.0,
-      "y": 28.0,
-      "z": -13.196,
-      "heading": 60.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": 120,
-     "radius": 6,
-     "width": 3.5,
-     "drop": -1.5,
-     "rails": "none",
-     "checkpoint": true,
-     "start": {
-      "x": 3.0,
-      "y": 26.5,
-      "z": -23.588,
-      "heading": -60.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 10,
-     "width": 5,
-     "drop": -0.5,
-     "rails": "both",
-     "surface": "tar",
-     "start": {
-      "x": 3.0,
-      "y": 25.0,
-      "z": -33.981,
-      "heading": 60.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": -90,
-     "radius": 8,
-     "width": 4,
-     "drop": -1,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "bonus",
-       "at": 0.5,
-       "x": 0.75,
-       "seconds": 5
-      }
-     ],
-     "start": {
-      "x": 11.66,
-      "y": 24.5,
-      "z": -38.981,
-      "heading": 60.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 12,
-     "width": 3,
-     "drop": -2,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "spinner",
-       "at": 0.5,
-       "x": 0.0,
-       "length": 2.6,
-       "speed": 1.6
-      }
-     ],
-     "start": {
-      "x": 14.588,
-      "y": 23.5,
-      "z": -49.909,
-      "heading": -30.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 12,
-     "length": 12,
-     "drop": 0,
-     "rails": "none",
-     "checkpoint": true,
-     "hazards": [
-      {
-       "type": "bumper",
-       "at": 0.3,
-       "x": -0.5
-      },
-      {
-       "type": "bumper",
-       "at": 0.3,
-       "x": 0.5
-      },
-      {
-       "type": "bumper",
-       "at": 0.7,
-       "x": -0.5
-      },
-      {
-       "type": "bumper",
-       "at": 0.7,
-       "x": 0.5
-      }
-     ],
-     "start": {
-      "x": 8.588,
-      "y": 21.5,
-      "z": -60.301,
-      "heading": -30.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": 90,
-     "radius": 6,
-     "width": 3,
-     "drop": -1,
-     "rails": "none",
-     "start": {
-      "x": 2.588,
-      "y": 21.5,
-      "z": -70.694,
-      "heading": -30.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 8,
-     "width": 5,
-     "drop": -1,
-     "rails": "both",
-     "start": {
-      "x": 4.785,
-      "y": 20.5,
-      "z": -78.89,
-      "heading": 60.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "goal",
-       "at": 0.6,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 11.713,
-      "y": 19.5,
-      "z": -82.89,
-      "heading": 60.0
-     }
-    }
-   ]
-  },
-  {
-   "id": "pipeworks",
-   "name": {
-    "he": "מפעל הצינורות",
-    "en": "Pipe Works"
-   },
-   "theme": "factory",
-   "desc": {
-    "he": "צינור ירידה, פטישים הידראוליים, אריחים מתפוררים ושואב שמרים אותך למעלה.",
-    "en": "Drop tubes, hydraulic hammers, crumbling tiles and a vacuum lift."
-   },
-   "raceTime": 42.5,
-   "par": 24.5,
-   "medals": {
-    "bronze": 29.0,
-    "silver": 23.5,
-    "gold": 20.5,
-    "acorn": 18.0
-   },
-   "killY": 13.0,
-   "pathLength": 107.0,
-   "segments": [
-    {
-     "type": "straight",
-     "length": 10,
-     "width": 6,
-     "drop": -1,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "start",
-       "at": 0.3,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": 0.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "hammer",
-       "at": 0.5,
-       "x": 0,
-       "period": 2.2
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 29.0,
-      "z": -10.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "tube",
-     "length": 18,
-     "width": 3,
-     "drop": -8,
-     "rails": "none",
-     "start": {
-      "x": 0.0,
-      "y": 29.0,
-      "z": -20.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 12,
-     "length": 12,
-     "drop": 0,
-     "rails": "none",
-     "checkpoint": true,
-     "hazards": [
-      {
-       "type": "hammer",
-       "at": 0.3,
-       "x": -0.5,
-       "period": 1.8
-      },
-      {
-       "type": "hammer",
-       "at": 0.7,
-       "x": 0.5,
-       "period": 1.8,
-       "phase": 0.5
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 21.0,
-      "z": -38.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 12,
-     "width": 4,
-     "drop": 0,
-     "rails": "none",
-     "collapse": true,
-     "start": {
-      "x": 0.0,
-      "y": 21.0,
-      "z": -50.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "lift",
-     "length": 3,
-     "width": 3,
-     "drop": 7,
-     "rails": "none",
-     "start": {
-      "x": 0.0,
-      "y": 21.0,
-      "z": -62.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "checkpoint": true,
-     "start": {
-      "x": 0.0,
-      "y": 28.0,
-      "z": -65.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": -90,
-     "radius": 7,
-     "width": 4,
-     "drop": -1,
-     "rails": "none",
-     "start": {
-      "x": 0.0,
-      "y": 28.0,
-      "z": -75.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 14,
-     "width": 4,
-     "drop": -3,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "speedpad",
-       "at": 0.2,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": -7.0,
-      "y": 27.0,
-      "z": -82.0,
-      "heading": -90.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "goal",
-       "at": 0.6,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": -21.0,
-      "y": 24.0,
-      "z": -82.0,
-      "heading": -90.0
-     }
-    }
-   ]
-  },
-  {
-   "id": "castle",
-   "name": {
-    "he": "טיפוס לטירה",
-    "en": "Castle Climb"
-   },
-   "theme": "castle",
-   "desc": {
-    "he": "עולים! זרוע מסתובבת, מקפצה מעל תהום ופלטפורמה נעה.",
-    "en": "Uphill! A spinning arm, a launcher over a chasm and a moving platform."
-   },
-   "raceTime": 41.5,
-   "par": 24.0,
-   "medals": {
-    "bronze": 28.5,
-    "silver": 23.0,
-    "gold": 20.0,
-    "acorn": 18.0
-   },
-   "killY": 22.0,
-   "pathLength": 136.3,
-   "segments": [
-    {
-     "type": "straight",
-     "length": 10,
-     "width": 6,
-     "drop": 0,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "start",
-       "at": 0.3,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": 0.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 14,
-     "width": 5,
-     "drop": 3,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "speedpad",
-       "at": 0.1,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": -10.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 14,
-     "length": 14,
-     "drop": 0,
-     "rails": "none",
-     "checkpoint": true,
-     "hazards": [
-      {
-       "type": "spinner",
-       "at": 0.5,
-       "x": 0.0,
-       "length": 11,
-       "speed": 1.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 33.0,
-      "z": -24.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 6,
-     "width": 4,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "launcher",
-       "at": 0.7,
-       "x": 0.0,
-       "power": 1.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 33.0,
-      "z": -38.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "gap",
-     "length": 10,
-     "width": 4,
-     "drop": 1,
-     "rails": "none",
-     "start": {
-      "x": 0.0,
-      "y": 33.0,
-      "z": -44.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "checkpoint": true,
-     "start": {
-      "x": 0.0,
-      "y": 34.0,
-      "z": -54.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "gap",
-     "length": 12,
-     "width": 4,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "mover",
-       "at": 0.5,
-       "x": 0.0,
-       "travel": 10,
-       "period": 4
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 34.0,
-      "z": -64.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "start": {
-      "x": 0.0,
-      "y": 34.0,
-      "z": -76.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": 180,
-     "radius": 9,
-     "width": 4,
-     "drop": 2,
-     "rails": "left",
-     "start": {
-      "x": 0.0,
-      "y": 34.0,
-      "z": -86.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 10,
-     "width": 4,
-     "drop": 1.5,
-     "rails": "both",
-     "hazards": [
-      {
-       "type": "rival",
-       "at": 0.5,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 18.0,
-      "y": 36.0,
-      "z": -86.0,
-      "heading": 180.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 12,
-     "length": 12,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "goal",
-       "at": 0.6,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 18.0,
-      "y": 37.5,
-      "z": -76.0,
-      "heading": 180.0
-     }
-    }
-   ]
-  },
-  {
-   "id": "skystairs",
-   "name": {
-    "he": "מדרגות לשמיים",
-    "en": "Sky Stairs"
-   },
-   "theme": "sky",
-   "desc": {
-    "he": "המרוץ היחיד שכולו למעלה: שואבים, רמפות האצה וכפתור +5 שנ׳.",
-    "en": "An all-uphill race: vacuums, boost ramps and a +5s button."
-   },
-   "raceTime": 38.5,
-   "par": 22.0,
-   "medals": {
-    "bronze": 26.0,
-    "silver": 21.0,
-    "gold": 18.0,
-    "acorn": 16.5
-   },
-   "killY": 22.0,
-   "pathLength": 75.9,
-   "segments": [
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "start",
-       "at": 0.4,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": 0.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "lift",
-     "length": 3,
-     "width": 3,
-     "drop": 8,
-     "rails": "none",
-     "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": -10.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 10,
-     "width": 3,
-     "drop": 1,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "speedpad",
-       "at": 0.3,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 0.0,
-      "y": 38.0,
-      "z": -13.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "curve",
-     "angle": 90,
-     "radius": 5,
-     "width": 3,
-     "drop": 1,
-     "rails": "none",
-     "start": {
-      "x": 0.0,
-      "y": 39.0,
-      "z": -23.0,
-      "heading": 0.0
-     }
-    },
-    {
-     "type": "lift",
-     "length": 3,
-     "width": 3,
-     "drop": 6,
-     "rails": "none",
-     "start": {
-      "x": 5.0,
-      "y": 40.0,
-      "z": -28.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 10,
-     "length": 10,
-     "drop": 0,
-     "rails": "none",
-     "checkpoint": true,
-     "hazards": [
-      {
-       "type": "bonus",
-       "at": 0.5,
-       "x": 0.7,
-       "seconds": 5
-      }
-     ],
-     "start": {
-      "x": 8.0,
-      "y": 46.0,
-      "z": -28.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "straight",
-     "length": 12,
-     "width": 2.5,
-     "drop": 2,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "speedpad",
-       "at": 0.2,
-       "x": 0.0
-      },
-      {
-       "type": "speedpad",
-       "at": 0.6,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 18.0,
-      "y": 46.0,
-      "z": -28.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "gap",
-     "length": 6,
-     "width": 4,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "mover",
-       "at": 0.5,
-       "x": 0.0,
-       "travel": 5,
-       "period": 3
-      }
-     ],
-     "start": {
-      "x": 30.0,
-      "y": 48.0,
-      "z": -28.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 8,
-     "length": 8,
-     "drop": 0,
-     "rails": "none",
-     "checkpoint": true,
-     "start": {
-      "x": 36.0,
-      "y": 48.0,
-      "z": -28.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "lift",
-     "length": 3,
-     "width": 3,
-     "drop": 8,
-     "rails": "none",
-     "start": {
-      "x": 44.0,
-      "y": 48.0,
-      "z": -28.0,
-      "heading": 90.0
-     }
-    },
-    {
-     "type": "platform",
-     "width": 12,
-     "length": 12,
-     "drop": 0,
-     "rails": "none",
-     "hazards": [
-      {
-       "type": "goal",
-       "at": 0.6,
-       "x": 0.0
-      }
-     ],
-     "start": {
-      "x": 47.0,
-      "y": 56.0,
-      "z": -28.0,
-      "heading": 90.0
-     }
-    }
-   ]
-  },
   {
    "id": "neongrid",
    "name": {
@@ -1221,13 +18,13 @@
    "raceTime": 36.5,
    "par": 20.5,
    "medals": {
-    "bronze": 24.0,
+    "bronze": 24,
     "silver": 19.5,
-    "gold": 17.0,
-    "acorn": 15.0
+    "gold": 17,
+    "acorn": 15
    },
-   "killY": 14.0,
-   "pathLength": 116.0,
+   "killY": 14,
+   "pathLength": 116,
    "segments": [
     {
      "type": "straight",
@@ -1239,14 +36,14 @@
       {
        "type": "start",
        "at": 0.3,
-       "x": 0.0
+       "x": 0
       }
      ],
      "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": 0.0,
-      "heading": 0.0
+      "x": 0,
+      "y": 30,
+      "z": 0,
+      "heading": 0
      }
     },
     {
@@ -1257,10 +54,10 @@
      "rails": "none",
      "collapse": true,
      "start": {
-      "x": 0.0,
-      "y": 29.0,
-      "z": -10.0,
-      "heading": 0.0
+      "x": 0,
+      "y": 29,
+      "z": -10,
+      "heading": 0
      }
     },
     {
@@ -1274,16 +71,16 @@
       {
        "type": "spinner",
        "at": 0.5,
-       "x": 0.0,
+       "x": 0,
        "length": 12,
        "speed": 1.4
       }
      ],
      "start": {
-      "x": 0.0,
-      "y": 28.0,
-      "z": -26.0,
-      "heading": 0.0
+      "x": 0,
+      "y": 28,
+      "z": -26,
+      "heading": 0
      }
     },
     {
@@ -1297,16 +94,16 @@
       {
        "type": "saw",
        "at": 0.5,
-       "x": 0.0,
+       "x": 0,
        "travel": 3.2,
        "period": 2.5
       }
      ],
      "start": {
-      "x": 0.0,
-      "y": 28.0,
-      "z": -40.0,
-      "heading": 0.0
+      "x": 0,
+      "y": 28,
+      "z": -40,
+      "heading": 0
      }
     },
     {
@@ -1319,16 +116,16 @@
       {
        "type": "mover",
        "at": 0.5,
-       "x": 0.0,
+       "x": 0,
        "travel": 11,
        "period": 4.5
       }
      ],
      "start": {
-      "x": -8.0,
-      "y": 26.0,
-      "z": -48.0,
-      "heading": -90.0
+      "x": -8,
+      "y": 26,
+      "z": -48,
+      "heading": -90
      }
     },
     {
@@ -1339,10 +136,10 @@
      "rails": "none",
      "checkpoint": true,
      "start": {
-      "x": -22.0,
-      "y": 25.0,
-      "z": -48.0,
-      "heading": -90.0
+      "x": -22,
+      "y": 25,
+      "z": -48,
+      "heading": -90
      }
     },
     {
@@ -1355,7 +152,7 @@
       {
        "type": "rival",
        "at": 0.3,
-       "x": 0.0
+       "x": 0
       },
       {
        "type": "bumper",
@@ -1364,10 +161,10 @@
       }
      ],
      "start": {
-      "x": -32.0,
-      "y": 25.0,
-      "z": -48.0,
-      "heading": -90.0
+      "x": -32,
+      "y": 25,
+      "z": -48,
+      "heading": -90
      }
     },
     {
@@ -1379,10 +176,10 @@
      "rails": "left",
      "surface": "glass",
      "start": {
-      "x": -50.0,
-      "y": 23.0,
-      "z": -48.0,
-      "heading": -90.0
+      "x": -50,
+      "y": 23,
+      "z": -48,
+      "heading": -90
      }
     },
     {
@@ -1395,14 +192,14 @@
       {
        "type": "goal",
        "at": 0.6,
-       "x": 0.0
+       "x": 0
       }
      ],
      "start": {
-      "x": -56.0,
-      "y": 22.0,
-      "z": -54.0,
-      "heading": 0.0
+      "x": -56,
+      "y": 22,
+      "z": -54,
+      "heading": 0
      }
     }
    ]
@@ -1415,18 +212,18 @@
    },
    "theme": "ice",
    "desc": {
-    "he": "הגמר: קרח חלקלק, זכוכית, מסורים וכל מה שלמדת.",
-    "en": "The finale: slippery ice, glass, saws and everything you learned."
+    "he": "קרח חלקלק, זכוכית, מסורים וכל מה שלמדת.",
+    "en": "Slippery ice, glass, saws and everything you learned."
    },
-   "raceTime": 52.0,
+   "raceTime": 52,
    "par": 31.5,
    "medals": {
-    "bronze": 37.0,
-    "silver": 30.0,
-    "gold": 26.0,
+    "bronze": 37,
+    "silver": 30,
+    "gold": 26,
     "acorn": 23.5
    },
-   "killY": 4.0,
+   "killY": 4,
    "pathLength": 161.7,
    "segments": [
     {
@@ -1440,14 +237,14 @@
       {
        "type": "start",
        "at": 0.2,
-       "x": 0.0
+       "x": 0
       }
      ],
      "start": {
-      "x": 0.0,
-      "y": 30.0,
-      "z": 0.0,
-      "heading": 0.0
+      "x": 0,
+      "y": 30,
+      "z": 0,
+      "heading": 0
      }
     },
     {
@@ -1459,10 +256,10 @@
      "rails": "left",
      "surface": "ice",
      "start": {
-      "x": 0.0,
-      "y": 28.0,
-      "z": -12.0,
-      "heading": 0.0
+      "x": 0,
+      "y": 28,
+      "z": -12,
+      "heading": 0
      }
     },
     {
@@ -1496,10 +293,10 @@
       }
      ],
      "start": {
-      "x": 10.0,
-      "y": 27.0,
-      "z": -22.0,
-      "heading": 90.0
+      "x": 10,
+      "y": 27,
+      "z": -22,
+      "heading": 90
      }
     },
     {
@@ -1513,16 +310,16 @@
       {
        "type": "saw",
        "at": 0.5,
-       "x": 0.0,
+       "x": 0,
        "travel": 2.4,
        "period": 2
       }
      ],
      "start": {
-      "x": 26.0,
-      "y": 27.0,
-      "z": -22.0,
-      "heading": 90.0
+      "x": 26,
+      "y": 27,
+      "z": -22,
+      "heading": 90
      }
     },
     {
@@ -1532,10 +329,10 @@
      "drop": -6,
      "rails": "none",
      "start": {
-      "x": 40.0,
-      "y": 25.0,
-      "z": -22.0,
-      "heading": 90.0
+      "x": 40,
+      "y": 25,
+      "z": -22,
+      "heading": 90
      }
     },
     {
@@ -1549,16 +346,16 @@
       {
        "type": "spinner",
        "at": 0.5,
-       "x": 0.0,
+       "x": 0,
        "length": 10,
        "speed": 1.2
       }
      ],
      "start": {
-      "x": 54.0,
-      "y": 19.0,
-      "z": -22.0,
-      "heading": 90.0
+      "x": 54,
+      "y": 19,
+      "z": -22,
+      "heading": 90
      }
     },
     {
@@ -1570,10 +367,10 @@
      "rails": "right",
      "surface": "ice",
      "start": {
-      "x": 66.0,
-      "y": 19.0,
-      "z": -22.0,
-      "heading": 90.0
+      "x": 66,
+      "y": 19,
+      "z": -22,
+      "heading": 90
      }
     },
     {
@@ -1586,15 +383,15 @@
       {
        "type": "launcher",
        "at": 0.7,
-       "x": 0.0,
-       "power": 1.0
+       "x": 0,
+       "power": 1
       }
      ],
      "start": {
-      "x": 66.0,
-      "y": 17.0,
-      "z": -36.0,
-      "heading": -90.0
+      "x": 66,
+      "y": 17,
+      "z": -36,
+      "heading": -90
      }
     },
     {
@@ -1604,10 +401,10 @@
      "drop": -2,
      "rails": "none",
      "start": {
-      "x": 60.0,
-      "y": 17.0,
-      "z": -36.0,
-      "heading": -90.0
+      "x": 60,
+      "y": 17,
+      "z": -36,
+      "heading": -90
      }
     },
     {
@@ -1618,10 +415,10 @@
      "rails": "none",
      "checkpoint": true,
      "start": {
-      "x": 48.0,
-      "y": 15.0,
-      "z": -36.0,
-      "heading": -90.0
+      "x": 48,
+      "y": 15,
+      "z": -36,
+      "heading": -90
      }
     },
     {
@@ -1632,10 +429,10 @@
      "rails": "none",
      "collapse": true,
      "start": {
-      "x": 38.0,
-      "y": 15.0,
-      "z": -36.0,
-      "heading": -90.0
+      "x": 38,
+      "y": 15,
+      "z": -36,
+      "heading": -90
      }
     },
     {
@@ -1648,14 +445,547 @@
       {
        "type": "goal",
        "at": 0.6,
-       "x": 0.0
+       "x": 0
       }
      ],
      "start": {
-      "x": 22.0,
-      "y": 12.0,
-      "z": -36.0,
-      "heading": -90.0
+      "x": 22,
+      "y": 12,
+      "z": -36,
+      "heading": -90
+     }
+    }
+   ]
+  },
+  {
+   "id": "cloudgauntlet",
+   "name": {
+    "he": "מסלול העננים",
+    "en": "Cloud Gauntlet"
+   },
+   "theme": "sky",
+   "desc": {
+    "he": "שבילים צרים בלי מעקות, מסור בעיקול, קפיצה עיוורת ופלטפורמה מהירה.",
+    "en": "Rail-less paths, a saw on a bend, a blind launch and a fast mover."
+   },
+   "raceTime": 40,
+   "par": 23,
+   "medals": {
+    "bronze": 27,
+    "silver": 22,
+    "gold": 19,
+    "acorn": 17
+   },
+   "killY": 13,
+   "pathLength": 130.1,
+   "segments": [
+    {
+     "type": "straight",
+     "length": 10,
+     "width": 5,
+     "drop": -1,
+     "rails": "both",
+     "hazards": [
+      {
+       "type": "start",
+       "at": 0.3,
+       "x": 0
+      }
+     ],
+     "start": {
+      "x": 0,
+      "y": 30,
+      "z": 0,
+      "heading": 0
+     }
+    },
+    {
+     "type": "straight",
+     "length": 14,
+     "width": 2.5,
+     "drop": -2,
+     "rails": "none",
+     "hazards": [
+      {
+       "type": "speedpad",
+       "at": 0.15,
+       "x": 0
+      }
+     ],
+     "start": {
+      "x": 0,
+      "y": 29,
+      "z": -10,
+      "heading": 0
+     }
+    },
+    {
+     "type": "platform",
+     "width": 12,
+     "length": 12,
+     "drop": 0,
+     "rails": "none",
+     "checkpoint": true,
+     "hazards": [
+      {
+       "type": "bumper",
+       "at": 0.3,
+       "x": -0.55
+      },
+      {
+       "type": "bumper",
+       "at": 0.3,
+       "x": 0.55
+      },
+      {
+       "type": "rival",
+       "at": 0.72,
+       "x": 0
+      }
+     ],
+     "start": {
+      "x": 0,
+      "y": 27,
+      "z": -24,
+      "heading": 0
+     }
+    },
+    {
+     "type": "curve",
+     "angle": 90,
+     "radius": 6,
+     "width": 3,
+     "drop": -1,
+     "rails": "none",
+     "hazards": [
+      {
+       "type": "saw",
+       "at": 0.5,
+       "x": 0,
+       "travel": 2.2,
+       "period": 1.8
+      }
+     ],
+     "start": {
+      "x": 0,
+      "y": 27,
+      "z": -36,
+      "heading": 0
+     }
+    },
+    {
+     "type": "straight",
+     "length": 6,
+     "width": 4,
+     "drop": 0,
+     "rails": "none",
+     "hazards": [
+      {
+       "type": "launcher",
+       "at": 0.7,
+       "x": 0,
+       "power": 1
+      }
+     ],
+     "start": {
+      "x": 6,
+      "y": 26,
+      "z": -42,
+      "heading": 90
+     }
+    },
+    {
+     "type": "gap",
+     "length": 12,
+     "width": 4,
+     "drop": -2,
+     "rails": "none",
+     "start": {
+      "x": 12,
+      "y": 26,
+      "z": -42,
+      "heading": 90
+     }
+    },
+    {
+     "type": "platform",
+     "width": 10,
+     "length": 10,
+     "drop": 0,
+     "rails": "none",
+     "checkpoint": true,
+     "hazards": [
+      {
+       "type": "spinner",
+       "at": 0.5,
+       "x": 0,
+       "length": 8,
+       "speed": 1.9
+      }
+     ],
+     "start": {
+      "x": 24,
+      "y": 24,
+      "z": -42,
+      "heading": 90
+     }
+    },
+    {
+     "type": "gap",
+     "length": 10,
+     "width": 4,
+     "drop": 0,
+     "rails": "none",
+     "hazards": [
+      {
+       "type": "mover",
+       "at": 0.5,
+       "x": 0,
+       "travel": 6.6,
+       "period": 3.2
+      }
+     ],
+     "start": {
+      "x": 34,
+      "y": 24,
+      "z": -42,
+      "heading": 90
+     }
+    },
+    {
+     "type": "platform",
+     "width": 8,
+     "length": 8,
+     "drop": 0,
+     "rails": "none",
+     "checkpoint": true,
+     "start": {
+      "x": 44,
+      "y": 24,
+      "z": -42,
+      "heading": 90
+     }
+    },
+    {
+     "type": "curve",
+     "angle": -120,
+     "radius": 7,
+     "width": 3,
+     "drop": -2,
+     "rails": "none",
+     "surface": "ice",
+     "start": {
+      "x": 52,
+      "y": 24,
+      "z": -42,
+      "heading": 90
+     }
+    },
+    {
+     "type": "straight",
+     "length": 12,
+     "width": 3,
+     "drop": -1,
+     "rails": "none",
+     "collapse": true,
+     "start": {
+      "x": 58.062,
+      "y": 22,
+      "z": -52.5,
+      "heading": -30
+     }
+    },
+    {
+     "type": "platform",
+     "width": 12,
+     "length": 12,
+     "drop": 0,
+     "rails": "none",
+     "hazards": [
+      {
+       "type": "goal",
+       "at": 0.6,
+       "x": 0
+      }
+     ],
+     "start": {
+      "x": 52.062,
+      "y": 21,
+      "z": -62.892,
+      "heading": -30
+     }
+    }
+   ]
+  },
+  {
+   "id": "factoryfinale",
+   "name": {
+    "he": "גמר המפעל",
+    "en": "Factory Finale"
+   },
+   "theme": "factory",
+   "desc": {
+    "he": "הגמר: פטישים, מסורים כפולים, צינור, שואב, אריחים נופלים וזינוק אחרון.",
+    "en": "The finale: hammers, twin saws, a tube, a vacuum, crumbling tiles and one last leap."
+   },
+   "raceTime": 48,
+   "par": 28.5,
+   "medals": {
+    "bronze": 33.5,
+    "silver": 27.5,
+    "gold": 23.5,
+    "acorn": 21
+   },
+   "killY": 13,
+   "pathLength": 129.4,
+   "segments": [
+    {
+     "type": "straight",
+     "length": 10,
+     "width": 6,
+     "drop": -1,
+     "rails": "both",
+     "hazards": [
+      {
+       "type": "start",
+       "at": 0.3,
+       "x": 0
+      }
+     ],
+     "start": {
+      "x": 0,
+      "y": 30,
+      "z": 0,
+      "heading": 0
+     }
+    },
+    {
+     "type": "straight",
+     "length": 12,
+     "width": 4,
+     "drop": -1,
+     "rails": "both",
+     "hazards": [
+      {
+       "type": "hammer",
+       "at": 0.5,
+       "x": -0.5,
+       "period": 1.6
+      }
+     ],
+     "start": {
+      "x": 0,
+      "y": 29,
+      "z": -10,
+      "heading": 0
+     }
+    },
+    {
+     "type": "platform",
+     "width": 12,
+     "length": 12,
+     "drop": 0,
+     "rails": "none",
+     "checkpoint": true,
+     "hazards": [
+      {
+       "type": "hammer",
+       "at": 0.3,
+       "x": -0.5,
+       "period": 1.5
+      },
+      {
+       "type": "hammer",
+       "at": 0.7,
+       "x": 0.5,
+       "period": 1.5,
+       "phase": 0.5
+      },
+      {
+       "type": "bonus",
+       "at": 0.5,
+       "x": 0.8,
+       "seconds": 3
+      }
+     ],
+     "start": {
+      "x": 0,
+      "y": 28,
+      "z": -22,
+      "heading": 0
+     }
+    },
+    {
+     "type": "tube",
+     "length": 16,
+     "width": 3,
+     "drop": -6,
+     "rails": "none",
+     "start": {
+      "x": 0,
+      "y": 28,
+      "z": -34,
+      "heading": 0
+     }
+    },
+    {
+     "type": "platform",
+     "width": 10,
+     "length": 10,
+     "drop": 0,
+     "rails": "none",
+     "checkpoint": true,
+     "hazards": [
+      {
+       "type": "rival",
+       "at": 0.55,
+       "x": 0
+      }
+     ],
+     "start": {
+      "x": 0,
+      "y": 22,
+      "z": -50,
+      "heading": 0
+     }
+    },
+    {
+     "type": "straight",
+     "length": 14,
+     "width": 3,
+     "drop": -1,
+     "rails": "none",
+     "hazards": [
+      {
+       "type": "saw",
+       "at": 0.35,
+       "x": 0,
+       "travel": 2.4,
+       "period": 1.6
+      },
+      {
+       "type": "saw",
+       "at": 0.75,
+       "x": 0,
+       "travel": 2.4,
+       "period": 1.9
+      }
+     ],
+     "start": {
+      "x": 0,
+      "y": 22,
+      "z": -60,
+      "heading": 0
+     }
+    },
+    {
+     "type": "lift",
+     "length": 3,
+     "width": 3,
+     "drop": 6,
+     "rails": "none",
+     "start": {
+      "x": 0,
+      "y": 21,
+      "z": -74,
+      "heading": 0
+     }
+    },
+    {
+     "type": "platform",
+     "width": 10,
+     "length": 10,
+     "drop": 0,
+     "rails": "none",
+     "checkpoint": true,
+     "start": {
+      "x": 0,
+      "y": 27,
+      "z": -77,
+      "heading": 0
+     }
+    },
+    {
+     "type": "straight",
+     "length": 8,
+     "width": 3,
+     "drop": 0,
+     "rails": "none",
+     "collapse": true,
+     "start": {
+      "x": 0,
+      "y": 27,
+      "z": -87,
+      "heading": 0
+     }
+    },
+    {
+     "type": "curve",
+     "angle": 90,
+     "radius": 6,
+     "width": 3,
+     "drop": -1,
+     "rails": "none",
+     "surface": "tar",
+     "start": {
+      "x": 0,
+      "y": 27,
+      "z": -95,
+      "heading": 0
+     }
+    },
+    {
+     "type": "straight",
+     "length": 6,
+     "width": 4,
+     "drop": 0,
+     "rails": "none",
+     "hazards": [
+      {
+       "type": "launcher",
+       "at": 0.7,
+       "x": 0,
+       "power": 1
+      }
+     ],
+     "start": {
+      "x": 6,
+      "y": 26,
+      "z": -101,
+      "heading": 90
+     }
+    },
+    {
+     "type": "gap",
+     "length": 10,
+     "width": 4,
+     "drop": -1,
+     "rails": "none",
+     "start": {
+      "x": 12,
+      "y": 26,
+      "z": -101,
+      "heading": 90
+     }
+    },
+    {
+     "type": "platform",
+     "width": 12,
+     "length": 12,
+     "drop": 0,
+     "rails": "none",
+     "hazards": [
+      {
+       "type": "goal",
+       "at": 0.6,
+       "x": 0
+      }
+     ],
+     "start": {
+      "x": 22,
+      "y": 25,
+      "z": -101,
+      "heading": 90
      }
     }
    ]
