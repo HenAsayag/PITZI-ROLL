@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
+  <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC83D"/><stop offset="1" stop-color="#F4A259"/></linearGradient>
+  <radialGradient id="b" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#7FDBFF" stop-opacity=".5"/></radialGradient></defs>
+  <g font-family="Rubik, 'Arial Black', sans-serif" font-weight="900" font-size="150" text-anchor="middle" stroke="#1B1F3B" stroke-width="22" stroke-linejoin="round" paint-order="stroke">
+    <text x="300" y="165" fill="url(#t)">PITZI</text>
+    <text x="330" y="280" fill="#7FDBFF" font-size="110">ROLL</text>
+  </g>
+  <g transform="translate(640 150)"><g transform="translate(-110 -110)">
+  <defs><radialGradient id="g" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".55"/>
+  <stop offset=".6" stop-color="#7FDBFF" stop-opacity=".18"/><stop offset="1" stop-color="#7FDBFF" stop-opacity=".55"/></radialGradient></defs>
+  <g transform="translate(22 22) scale(.8)"><g>
+  <ellipse cx="110" cy="190" rx="62" ry="10" fill="#000" opacity=".12"/>
+  <circle cx="62" cy="58" r="22" fill="#D9823B"/><circle cx="62" cy="58" r="12" fill="#FF8FB1"/>
+  <circle cx="158" cy="58" r="22" fill="#D9823B"/><circle cx="158" cy="58" r="12" fill="#FF8FB1"/>
+  <path d="M110 40 C168 40 186 90 184 128 C182 172 150 190 110 190 C70 190 38 172 36 128 C34 90 52 40 110 40Z" fill="#F4A259"/>
+  <path d="M110 92 C150 92 162 120 160 146 C158 176 138 186 110 186 C82 186 62 176 60 146 C58 120 70 92 110 92Z" fill="#FFF4E0"/>
+  <path d="M110 44 C118 60 118 72 110 84 C102 72 102 60 110 44Z" fill="#FFF4E0" opacity=".7"/>
+  <ellipse cx="84" cy="98" rx="9" ry="11" fill="#1B1F3B"/><ellipse cx="136" cy="98" rx="9" ry="11" fill="#1B1F3B"/>
+                   <circle cx="87" cy="94" r="3.5" fill="#fff"/><circle cx="139" cy="94" r="3.5" fill="#fff"/>
+  <ellipse cx="66" cy="122" rx="12" ry="7" fill="#FF8FB1" opacity=".7"/><ellipse cx="154" cy="122" rx="12" ry="7" fill="#FF8FB1" opacity=".7"/>
+  <path d="M104 114 L116 114 L110 121Z" fill="#FF4F8B"/>
+  <path d="M110 121 Q104 130 97 127 M110 121 Q116 130 123 127" stroke="#1B1F3B" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <ellipse cx="88" cy="160" rx="11" ry="8" fill="#D9823B"/><ellipse cx="132" cy="160" rx="11" ry="8" fill="#D9823B"/>
+  
+</g></g>
+  <circle cx="110" cy="110" r="104" fill="url(#g)" stroke="#7FDBFF" stroke-width="5"/>
+  <path d="M8 110 Q110 138 212 110" stroke="#fff" stroke-opacity=".6" stroke-width="4" fill="none"/>
+  <path d="M46 52 Q70 26 104 20" stroke="#fff" stroke-width="10" stroke-linecap="round" fill="none" opacity=".85"/>
+</g></g>
+  <text x="640" y="292" font-family="Rubik, 'Arial Black', sans-serif" font-weight="800" font-size="34" text-anchor="middle" fill="#1B1F3B">HEN'S ARCADE</text>
+</svg>

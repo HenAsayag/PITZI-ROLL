@@ -1,0 +1,11 @@
+{
+  "name": "PITZI ROLL · HEN'S ARCADE",
+  "short_name": "PITZI ROLL",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#CDEEFF",
+  "theme_color": "#1B1F3B",
+  "icons": [{ "src": "assets/ui/favicon.png", "sizes": "128x128", "type": "image/png" }]
+}
