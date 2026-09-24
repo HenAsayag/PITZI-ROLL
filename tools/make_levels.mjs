@@ -58,6 +58,25 @@ export const LEVELS = [
       LIFT(6), P(10, 10, 0, 'none', { checkpoint: true }), S(8, 3, 0, 'none', { collapse: true }),
       C(90, 6, 3, -1, 'none', { surface: 'tar' }), S(6, 4, 0, 'none', { hazards: [H('launcher', 0.7, 0, { power: 1.0 })] }), GAP(10, -1),
       P(12, 12, 0, 'none', { hazards: [H('goal', 0.6)] })] },
+
+  // Race 5, the longest and hardest: every hazard, narrower and faster, with two blind launches.
+  { id: 'impossible', name: { he: 'הבלתי אפשרי', en: 'Impossible' }, theme: 'castle',
+    desc: { he: 'הכי ארוך והכי קשה: כל המכשולים, צרים ומהירים יותר. בהצלחה.', en: 'The longest and hardest: every hazard, narrower and faster. Good luck.' },
+    segments: [S(10, 5, -1, 'both', { hazards: [H('start', 0.3)] }),
+      S(16, 2.5, -3, 'none', { hazards: [H('speedpad', 0.1)] }), C(-90, 6, 2.5, -1, 'none'),
+      P(10, 10, 0, 'none', { checkpoint: true, hazards: [H('spinner', 0.5, 0, { length: 9, speed: 2.2 })] }),
+      S(14, 3, -1, 'none', { hazards: [H('saw', 0.3, 0, { travel: 2.4, period: 1.4 }), H('saw', 0.7, 0, { travel: 2.4, period: 1.7 })] }),
+      S(6, 4, 0, 'none', { hazards: [H('launcher', 0.7, 0, { power: 1.0 })] }), GAP(12, -2),
+      P(10, 10, 0, 'none', { checkpoint: true, hazards: [H('hammer', 0.3, -0.5, { period: 1.3 }), H('hammer', 0.7, 0.5, { period: 1.3, phase: 0.5 }), H('rival', 0.5, 0.5)] }),
+      TUBE(16, -6), P(10, 10, 0, 'none', { checkpoint: true, surface: 'ice' }),
+      S(16, 2.5, -2, 'none', { collapse: true }), P(6, 6), // solid pad to wait for the mover
+      GAP(10, 0, { hazards: [H('mover', 0.5, 0, { travel: 6.6, period: 2.6 })] }), P(8, 8, 0, 'none', { checkpoint: true }),
+      LIFT(7),
+      P(10, 10, 0, 'none', { checkpoint: true, hazards: [H('bumper', 0.3, -0.5), H('bumper', 0.3, 0.5), H('bumper', 0.7, -0.5), H('bumper', 0.7, 0.5), H('rival', 0.5, 0)] }),
+      C(180, 7, 3, -2, 'none', { surface: 'glass', hazards: [H('saw', 0.5, 0, { travel: 2.2, period: 1.5 })] }),
+      S(8, 4, 0, 'none', { hazards: [H('launcher', 0.7, 0, { power: 1.0 })] }), GAP(12, -1), P(8, 8, 0, 'none', { checkpoint: true }),
+      S(14, 2.5, -2, 'none', { surface: 'ice', hazards: [H('spinner', 0.5, 0, { length: 2.2, speed: 2.4 })] }),
+      P(12, 12, 0, 'none', { hazards: [H('goal', 0.6)] })] },
 ];
 
 const rad = (d) => (d * Math.PI) / 180;
