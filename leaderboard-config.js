@@ -1,15 +1,10 @@
-// Shared leaderboard (Firebase). Paste your Firebase web-app config here to switch it on.
-// Firebase console → Project settings → General → Your apps → Web app → "firebaseConfig".
-// These values are public identifiers, not secrets; access is enforced by firestore.rules.
-// While this stays null the game runs fully offline, without registration or the online table.
-export const FIREBASE_CONFIG = null;
-/* Example:
+// Shared leaderboard (Firebase project "pitzi-roll"). These values are public identifiers, not secrets;
+// who may write what is enforced by firestore.rules. Set to null to run fully offline.
 export const FIREBASE_CONFIG = {
-  apiKey: 'AIza...',
+  apiKey: 'AIzaSyBcyaBvp0ujDafCGd_YDYAp1T-uYWbh7sU',
   authDomain: 'pitzi-roll.firebaseapp.com',
   projectId: 'pitzi-roll',
   storageBucket: 'pitzi-roll.firebasestorage.app',
-  messagingSenderId: '1234567890',
-  appId: '1:1234567890:web:abcdef',
+  messagingSenderId: '56584969974',
+  appId: '1:56584969974:web:fef964b3237b71aa5f16d7',
 };
-*/

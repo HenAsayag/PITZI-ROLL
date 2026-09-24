@@ -34,17 +34,16 @@
 ## לשחק מהטלפון (GitHub Pages)
 1. ב־GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**, בוחרים `main` ו־`/ (root)` ולוחצים **Save**.
 2. אחרי דקה־שתיים המשחק זמין בכתובת: **https://henasayag.github.io/PITZI-ROLL/**
-3. באנדרואיד אפשר ללחוץ על "מסך מלא ויאללה" במסך הפתיחה. באייפון אין מסך מלא בדפדפן, אז לוחצים "המשך". כדי לשחק במסך מלא באייפון: **שתף ← הוספה למסך הבית**, ופותחים את המשחק מהאייקון.
+3. בטלפון המשחק עובד רק לרוחב (במצב לאורך מופיע "סובבו את הטלפון"). באנדרואיד לוחצים "מסך מלא ויאללה" במסך הפתיחה. באייפון אין מסך מלא בדפדפן, אז לוחצים "המשך"; למסך מלא באייפון: **שתף ← הוספה למסך הבית**, ופותחים מהאייקון.
 
 ## טבלת שיאים משותפת (Firebase, חינם)
-כל עוד `leaderboard-config.js` ריק, המשחק עובד בלי אינטרנט, בלי הרשמה ובלי טבלה משותפת. כדי להפעיל:
-1. נכנסים ל־https://console.firebase.google.com ויוצרים פרויקט (אפשר בלי Google Analytics).
-2. **Build → Authentication → Get started → Sign-in method → Email/Password → Enable** (רק האפשרות הראשונה).
-3. **Build → Firestore Database → Create database** (production mode, אזור קרוב, למשל `eur3`).
-4. בלשונית **Rules** של Firestore מדביקים את התוכן של `firestore.rules` מהריפו ולוחצים **Publish**.
-5. **Project settings → General → Your apps → `</>` (Web)**. רושמים אפליקציה (בלי Hosting) ומעתיקים את האובייקט `firebaseConfig`.
-6. מדביקים אותו ב־`leaderboard-config.js` במקום `null`, עושים commit ו־push.
+הפרויקט `pitzi-roll` כבר מחובר דרך `leaderboard-config.js`. בלי סיסמאות: כל מכשיר נכנס אנונימית ותופס שם פנוי (למשל Hen), והשם נשאר שלו בדפדפן הזה.
+צריך לעשות פעם אחת בקונסולה של Firebase:
+1. **Build → Authentication → Sign-in method → Anonymous → Enable → Save**.
+2. **Build → Firestore Database** (אם עוד לא נוצר: Create database, production mode) **→ Rules**: מדביקים את התוכן של `firestore.rules` ולוחצים **Publish**.
 
-מה השחקנים מקבלים: במסך הפתיחה נרשמים עם כינוי וסיסמה (חובה כשהטבלה פעילה). כל סיום מרוץ שולח את הזמן הכי טוב שלהם לטבלה של אותו שלב, וטורניר שלם שולח ניקוד לטבלה לפי רמת קושי. בתפריט יש כפתור **טבלת שיאים** עם לשונית לכל אחד מ־8 המרוצים ולשונית 🏆 לטורניר. ריצות במצב מראה ודילוגי מפתח (Shift+N) לא נספרים.
+עד שזה מוכן, מסך בחירת השם מציג "לשחק בלי חיבור" והמשחק עובד רגיל.
+אם מישהו איבד את השם שלו (מחק נתוני גלישה / החליף דפדפן), אפשר לשחרר אותו ב־Firestore: מוחקים את `names/<השם באותיות קטנות>` ואת `players/<uid>` שלו.
+ריצות במצב מראה ודילוגי מפתח (Shift+N) לא נספרים.
 
 </div>

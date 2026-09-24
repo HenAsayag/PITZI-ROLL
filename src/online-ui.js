@@ -1,4 +1,4 @@
-// Start gate (full screen / continue), sign-up / log-in, and the shared leaderboard screen.
+// Start gate (full screen / continue), claiming a leaderboard name, and the shared leaderboard screen.
 import { fmtTime, isTouch } from './util.js';
 import { NAME_MAX } from './leaderboard.js';
 
@@ -12,23 +12,19 @@ export function requestFullscreen() {
   const el = document.documentElement;
   try {
     const p = (el.requestFullscreen || el.webkitRequestFullscreen)?.call(el, { navigationUI: 'hide' });
-    p?.catch?.(() => {});
+    // Android Chrome can lock to landscape once in full screen; elsewhere the rotate prompt does the job.
+    p?.then?.(() => screen.orientation?.lock?.('landscape').catch(() => {})).catch?.(() => {});
   } catch { /* not allowed: keep playing windowed */ }
 }
 
 export class OnlineUI {
   constructor(game) {
     this.g = game; this.lb = game.lb; this.ui = game.ui;
-    this.mode = 'register'; this.tab = 0; this.diff = game.store.settings.difficulty || 'normal';
+    this.tab = 0; this.diff = game.store.settings.difficulty || 'normal';
 
     $('btn-start-fs').hidden = !CAN_FULLSCREEN;
     $('ios-hint').hidden = !(IS_IOS && !CAN_FULLSCREEN && !navigator.standalone);
 
-    $('auth-tabs').addEventListener('click', (e) => {
-      const b = e.target.closest('[data-mode]'); if (!b) return;
-      game.audio.play('ui_click', { vol: 0.6 });
-      this.setMode(b.dataset.mode);
-    });
     $('auth-form').addEventListener('submit', (e) => { e.preventDefault(); this.submit(); });
     $('board-diff').addEventListener('click', (e) => {
       const b = e.target.closest('[data-diff]'); if (!b) return;
@@ -38,37 +34,31 @@ export class OnlineUI {
     this.syncUser();
   }
 
-  /** After the start gate: registration is required whenever the online board is available. */
+  /** After the start gate: a name is required whenever the online board is available. */
   afterStart() {
     if (this.lb.online && !this.lb.user) this.showAuth();
     else this.g.showMenu();
   }
 
-  setMode(m) {
-    this.mode = m;
-    document.querySelectorAll('#auth-tabs [data-mode]').forEach((b) => b.classList.toggle('on', b.dataset.mode === m));
-    $('auth-submit').querySelector('span').textContent = this.ui.t(m === 'register' ? 'register' : 'login');
-    $('auth-pass').autocomplete = m === 'register' ? 'new-password' : 'current-password';
-    $('auth-err').textContent = '';
-  }
   showAuth() {
-    this.setMode(this.mode);
+    $('auth-err').textContent = '';
     $('auth-offline').hidden = !this.lb.failed;
     this.ui.show('auth');
     if (!isTouch) setTimeout(() => $('auth-name').focus(), 60);
   }
   async submit() {
-    const name = $('auth-name').value, pass = $('auth-pass').value, btn = $('auth-submit');
+    const btn = $('auth-submit');
     $('auth-err').textContent = '';
     btn.disabled = true;
     try {
-      if (this.mode === 'register') await this.lb.register(name, pass);
-      else await this.lb.login(name, pass);
-      $('auth-pass').value = '';
+      await this.lb.claim($('auth-name').value);
+      $('auth-name').blur();
       this.g.audio.play('checkpoint', { vol: 0.6 });
       this.g.showMenu();
     } catch (e) {
       $('auth-err').textContent = this.ui.t(e.message);
+      // If the server side is not reachable or not set up, nobody gets stuck on this screen.
+      if (['errSetup', 'errNetwork', 'errGeneric'].includes(e.message)) $('auth-offline').hidden = false;
       this.g.audio.play('bump', { vol: 0.6 });
     } finally { btn.disabled = false; }
   }
@@ -78,12 +68,11 @@ export class OnlineUI {
     chip.hidden = !u;
     if (u) chip.textContent = `👤 ${u.name}`;
     $('board-user').textContent = u ? this.ui.t('loggedAs', { n: u.name }) : '';
-    $('btn-logout').hidden = !u;
     $('btn-board').hidden = !this.lb.enabled;
     $('auth-name').maxLength = NAME_MAX;
   }
   refreshLang() {
-    this.setMode(this.mode); this.syncUser();
+    this.syncUser();
     if (this.ui.cur === 'board') this.buildTabs(), this.loadBoard();
   }
 

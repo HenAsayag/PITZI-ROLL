@@ -1,21 +1,34 @@
 rules_version = '2';
 // Paste into Firebase console → Firestore Database → Rules → Publish.
+// No passwords: every device signs in anonymously and claims one nickname in /names.
 service cloud.firestore {
   match /databases/{database}/documents {
 
     function signedIn(uid) { return request.auth != null && request.auth.uid == uid; }
     function playerName(uid) { return get(/databases/$(database)/documents/players/$(uid)).data.name; }
+    function validName(n) { return n is string && n.size() >= 2 && n.size() <= 12; }
 
-    // One profile per account; the nickname is fixed at registration.
+    // Nickname registry: the document id is the lower-cased name. First come, first served; never reassigned.
+    match /names/{key} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(['uid', 'name'])
+        && request.resource.data.uid == request.auth.uid
+        && validName(request.resource.data.name)
+        && request.resource.data.name.lower() == key
+        && !exists(/databases/$(database)/documents/players/$(request.auth.uid));
+    }
+
+    // One profile per device account; its name must be the one this device just claimed.
     match /players/{uid} {
       allow read: if true;
       allow create: if signedIn(uid)
         && request.resource.data.keys().hasOnly(['name', 'created'])
-        && request.resource.data.name is string
-        && request.resource.data.name.size() >= 2 && request.resource.data.name.size() <= 12;
+        && validName(request.resource.data.name)
+        && getAfter(/databases/$(database)/documents/names/$(request.resource.data.name.lower())).data.uid == uid;
     }
 
-    // Best time per race: only your own entry, only with your registered name, only if faster.
+    // Best time per race: only your own entry, under your claimed name, only if faster.
     match /levels/{level}/scores/{uid} {
       allow read: if true;
       allow create, update: if signedIn(uid)
@@ -26,7 +39,7 @@ service cloud.firestore {
         && (resource == null || request.resource.data.time < resource.data.time);
     }
 
-    // Best tournament score per difficulty (easy / normal / hard): only if higher.
+    // Best tournament score per difficulty: only if higher.
     match /tourney/{diff}/scores/{uid} {
       allow read: if true;
       allow create, update: if signedIn(uid)

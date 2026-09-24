@@ -6,6 +6,7 @@ import RAPIER from 'rapier';
 import { DEG, angDiff, smooth, clamp, rand } from './util.js';
 
 const OMEGA = 9;
+const DIST = 6; // chase offset (0, DIST, DIST): closer than the original 9 m so Pitzi reads well on phones
 
 export class CameraRig {
   constructor(camera) {
@@ -29,7 +30,7 @@ export class CameraRig {
   desired(target, out) {
     const h = this.yaw * DEG, fx = Math.sin(h), fz = -Math.cos(h);
     const k = this.aspectK() * this.speedK;
-    return out.set(target.x - fx * 9 * k, target.y + 9 * k, target.z - fz * 9 * k);
+    return out.set(target.x - fx * DIST * k, target.y + DIST * k, target.z - fz * DIST * k);
   }
 
   snap(target) {

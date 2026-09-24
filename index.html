@@ -209,6 +209,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .field input{font:inherit;font-weight:800;font-size:18px;padding:10px 14px;border:var(--outline);border-radius:14px;background:#fff;color:var(--navy);
   user-select:text;-webkit-user-select:text;touch-action:manipulation;min-height:48px}
 .field input:focus{outline:3px solid var(--cyan);outline-offset:1px}
+.auth-pitzi{width:96px;height:96px;margin:0 auto}
+.small-note{font-size:13px}
 .err{color:#d6204f;font-weight:800;min-height:1.2em}
 .err:empty{min-height:0}
 .board-card{display:flex;flex-direction:column;gap:10px;min-height:0;overflow:auto;padding:16px;touch-action:pan-y}
@@ -226,6 +228,14 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .user-chip{cursor:default;font-size:14px}
 #res-online{font-weight:800;color:#1f8a4c}
 #res-online:empty{display:none}
+
+/* ---------- landscape only on phones ---------- */
+#rotate{position:fixed;inset:0;z-index:100;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center;
+  background:radial-gradient(circle at 50% 40%,#fffaf0,#cdeeff 70%,#a9dcf5);color:var(--navy)}
+@media (orientation:portrait){html.touch #rotate{display:flex}}
+.rot-phone{width:70px;height:120px;border:6px solid var(--navy);border-radius:16px;background:var(--cream);position:relative;animation:rot 2.2s ease-in-out infinite}
+.rot-phone::after{content:'';position:absolute;left:50%;bottom:6px;width:18px;height:4px;margin-left:-9px;border-radius:2px;background:var(--navy)}
+@keyframes rot{0%,20%{transform:rotate(0)}55%,80%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
 
 /* ---------- dev / fps ---------- */
 #fps,#dev{position:fixed;z-index:60;font:600 12px/1.35 ui-monospace,Menlo,Consolas,monospace;background:rgba(0,0,0,.6);color:#b8f35a;padding:4px 8px;border-radius:8px;pointer-events:none;direction:ltr;white-space:pre}
@@ -284,15 +294,15 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
 <section id="scr-auth" class="screen">
   <div class="card panel">
+    <img src="assets/ui/pitzi_happy.svg" alt="" class="auth-pitzi">
     <h2 data-i18n="authTitle"></h2>
     <p class="muted" data-i18n="authDesc"></p>
-    <div class="seg" id="auth-tabs"><button data-mode="register" class="on" data-i18n="register"></button><button data-mode="login" data-i18n="login"></button></div>
-    <form id="auth-form" autocomplete="on" novalidate>
-      <label class="field"><span data-i18n="nickname"></span><input id="auth-name" name="username" autocomplete="username" maxlength="12" autocapitalize="off" spellcheck="false" required></label>
-      <label class="field"><span data-i18n="password"></span><input id="auth-pass" name="password" type="password" autocomplete="new-password" minlength="6" required></label>
+    <form id="auth-form" autocomplete="off" novalidate>
+      <label class="field"><span data-i18n="nickname"></span><input id="auth-name" name="nickname" maxlength="12" autocapitalize="off" autocomplete="nickname" spellcheck="false" enterkeyhint="go" required></label>
       <p id="auth-err" class="err" role="alert"></p>
-      <button class="btn big orange" id="auth-submit" type="submit"><span data-i18n="register"></span></button>
+      <button class="btn big orange" id="auth-submit" type="submit"><img src="assets/icons/ball.svg" alt=""><span data-i18n="claimGo"></span></button>
     </form>
+    <p class="muted small-note" data-i18n="nameNote"></p>
     <button class="btn small" id="auth-offline" data-act="play-offline" data-i18n="playOffline" hidden></button>
   </div>
 </section>
@@ -306,7 +316,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <h3 id="board-title"></h3>
       <ol class="board-list" id="board-list"></ol>
       <p class="muted" id="board-status"></p>
-      <div class="board-me"><span id="board-user"></span><button class="btn small" data-act="logout" id="btn-logout" data-i18n="logout"></button></div>
+      <div class="board-me"><span id="board-user"></span></div>
     </div>
   </div>
 </section>
@@ -410,6 +420,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   </div>
 </section>
 <div id="confetti"></div>
+<div id="rotate" aria-live="polite"><div class="rot-phone"></div><h2 data-i18n="rotateTitle"></h2><p data-i18n="rotateDesc"></p></div>
 <div id="fps" hidden></div>
 <div id="dev" hidden></div>
 

@@ -95,7 +95,9 @@ class Game {
       await RAPIER.init();
       this.ui.setLoad(0.1);
       const lv = await fetch('levels/levels.json').then((x) => x.json());
-      this.levels = lv.levels;
+      // Candy Zigzag opens the game; the other races keep their original order.
+      const FIRST = 'zigzag';
+      this.levels = [...lv.levels.filter((l) => l.id === FIRST), ...lv.levels.filter((l) => l.id !== FIRST)];
       await Promise.all([
         ...TEX.map(async ([name, dir, repeat, srgb = true]) => {
           this.tex[name] = await loadTex(`assets/${dir}/${name}.png`, { repeat: !!repeat, srgb });
@@ -131,6 +133,10 @@ class Game {
       if (b === 'confirm' && this.state === 'intro') this.skipIntro();
     };
 
+    if (isTouch) document.documentElement.classList.add('touch');
+    // Phones play landscape only: turning to portrait mid-race pauses behind the rotate prompt.
+    const portrait = matchMedia('(orientation: portrait)');
+    portrait.addEventListener?.('change', () => { if (portrait.matches && isTouch) this.autoPause(); });
     addEventListener('resize', () => this.resize());
     screen.orientation?.addEventListener?.('change', () => setTimeout(() => this.resize(), 150));
     document.addEventListener('visibilitychange', () => { if (document.hidden) this.autoPause(); });
@@ -263,7 +269,6 @@ class Game {
       case 'start-fs': requestFullscreen(); this.online.afterStart(); break;
       case 'start-go': this.online.afterStart(); break;
       case 'board': this.online.openBoard(); break;
-      case 'logout': this.lb.logout().then(() => this.online.showAuth()); break;
       case 'play-offline': this.showMenu(); break;
       case 'pause': this.pause(); break;
       case 'resume': this.resume(); break;
