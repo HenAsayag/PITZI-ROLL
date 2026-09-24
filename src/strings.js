@@ -1,4 +1,4 @@
-// Every UI string, Hebrew (default, RTL) and English.
+// Every UI string, English (default) and Hebrew (RTL).
 export const STRINGS = {
   he: {
     rotateTitle: 'סובבו את הטלפון לרוחב', rotateDesc: 'פיצי רול משוחק רק כשהמסך לרוחב.', startFs: 'מסך מלא ויאללה', startGo: 'המשך', iosHint: 'באייפון: שתפו ← "הוספה למסך הבית" כדי לשחק במסך מלא.',

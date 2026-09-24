@@ -9,7 +9,7 @@ const SCREENS = ['loading', 'start', 'auth', 'board', 'menu', 'tourney', 'select
 export class UI {
   constructor(game) {
     this.g = game;
-    this.lang = 'he';
+    this.lang = 'en';
     this.cur = 'loading';
     this.overlay = null; // settings/pause stack on top of another screen
     this.hudEls = { timer: $('timer'), timerBox: $('timer-box'), fill: $('prog-fill'), ball: $('prog-ball'), medal: $('medal-hint'), score: $('score-chip') };

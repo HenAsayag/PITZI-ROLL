@@ -176,7 +176,7 @@ class Game {
     this.resize();
   }
   setLang(l) {
-    this.store.settings.lang = l; this.store.save();
+    this.store.settings.lang = l; this.store.settings.langChosen = true; this.store.save();
     this.ui.applyLang(l);
     this.online?.refreshLang();
   }

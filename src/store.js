@@ -9,7 +9,7 @@ const DEFAULTS = () => ({
   ghosts: {},             // levelId -> base64(Float32 xyz every 0.05 s)
   tourneyDone: false,
   tourneyBest: 0,
-  settings: { music: 0.7, sfx: 0.85, lang: 'he', fps: false, invertMouse: false, reducedMotion: false, quality: 'auto', difficulty: 'normal', mirror: false },
+  settings: { music: 0.7, sfx: 0.85, lang: 'en', fps: false, invertMouse: false, reducedMotion: false, quality: 'auto', difficulty: 'normal', mirror: false },
 });
 
 export const MEDALS = ['bronze', 'silver', 'gold', 'acorn'];
@@ -22,11 +22,10 @@ export class Store {
       if (raw) {
         const d = JSON.parse(raw), def = DEFAULTS();
         this.data = { ...def, ...d, settings: { ...def.settings, ...(d.settings || {}) } };
+        // English is the default; a saved language only sticks once the player picked it themselves.
+        if (!this.data.settings.langChosen) this.data.settings.lang = 'en';
       }
     } catch { /* storage unavailable or corrupt: keep defaults in memory */ }
-    try {
-      if (!localStorage.getItem(KEY) && /^en/i.test(navigator.language || '')) this.data.settings.lang = 'en';
-    } catch { /* ignore */ }
   }
   get settings() { return this.data.settings; }
   save() {
